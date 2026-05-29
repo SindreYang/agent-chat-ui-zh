@@ -40,7 +40,7 @@ function ButtonGroup({
         size="sm"
         onClick={handleShowState}
       >
-        State
+        State变量
       </Button>
       <Button
         variant="outline"
@@ -51,7 +51,7 @@ function ButtonGroup({
         size="sm"
         onClick={handleShowDescription}
       >
-        Description
+        详情
       </Button>
     </div>
   );
@@ -77,7 +77,7 @@ function getDecisionStatus(
 }
 
 function getActionTitle(action?: ActionRequest) {
-  return action?.name ?? "Unknown interrupt";
+  return action?.name ?? "未知中断";
 }
 
 export function ThreadActionsView({
@@ -155,7 +155,7 @@ export function ThreadActionsView({
   const handleOpenInStudio = () => {
     if (!apiUrl) {
       toast.error("Error", {
-        description: "Please set the LangGraph deployment URL in settings.",
+        description: "请在设置中填写后端部署 URL。",
         duration: 5000,
         richColors: true,
         closeButton: true,
@@ -185,13 +185,13 @@ export function ThreadActionsView({
       );
 
       toast("Success", {
-        description: "All actions approved successfully.",
+        description: "所有操作已成功批准。",
         duration: 5000,
       });
     } catch (error) {
       console.error("Error approving all actions", error);
       toast.error("Error", {
-        description: "Failed to approve all actions.",
+        description: "批准所有操作失败。",
         richColors: true,
         closeButton: true,
         duration: 5000,
@@ -204,7 +204,7 @@ export function ThreadActionsView({
 
     if (addressedActions.size !== actionRequests.length) {
       toast.error("Error", {
-        description: `Please address all ${actionRequests.length} actions before submitting.`,
+        description: `请在提交前处理所有 ${actionRequests.length} 个操作。`,
         richColors: true,
         closeButton: true,
         duration: 5000,
@@ -232,14 +232,14 @@ export function ThreadActionsView({
       );
 
       toast("Success", {
-        description: "All actions submitted successfully.",
+        description: "所有操作已成功提交。",
         duration: 5000,
       });
       setAddressedActions(new Map());
     } catch (error) {
-      console.error("Error submitting all actions", error);
+      console.error("提交所有操作时出错", error);
       toast.error("Error", {
-        description: "Failed to submit actions.",
+        description: "提交操作失败。",
         richColors: true,
         closeButton: true,
         duration: 5000,
@@ -267,7 +267,7 @@ export function ThreadActionsView({
 
     if (!decision || error) {
       toast.error("Error", {
-        description: error ?? "Unable to determine decision.",
+        description: error ?? "无法确定决策。",
         richColors: true,
         closeButton: true,
         duration: 5000,
@@ -282,7 +282,7 @@ export function ThreadActionsView({
     });
 
     toast("Success", {
-      description: `Action ${currentIndex + 1} captured.`,
+        description: `操作 ${currentIndex + 1} 已记录。`,
       duration: 3000,
     });
 
@@ -300,8 +300,7 @@ export function ThreadActionsView({
     return (
       <div className="flex min-h-full w-full flex-col items-center justify-center rounded-2xl bg-gray-50/50 p-8">
         <p className="text-sm text-gray-600">
-          Unable to render interrupt. The data provided is not in the expected
-          HITL format.
+          无法呈现中断。所提供的数据不是预期的 HITL 格式。
         </p>
       </div>
     );
@@ -346,7 +345,7 @@ export function ThreadActionsView({
           onClick={handleResolve}
           disabled={actionsDisabled}
         >
-          Mark as Resolved
+          标记为已解决
         </Button>
         {hasMultipleActions && allAllowApprove && (
           <Button

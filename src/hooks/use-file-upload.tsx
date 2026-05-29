@@ -63,12 +63,12 @@ export function useFileUpload({
 
     if (invalidFiles.length > 0) {
       toast.error(
-        "You have uploaded invalid file type. Please upload a JPEG, PNG, GIF, WEBP image or a PDF.",
+        "您上传了不支持的文件类型。请上传 JPEG、PNG、GIF、WEBP 图片或 PDF。",
       );
     }
     if (duplicateFiles.length > 0) {
       toast.error(
-        `Duplicate file(s) detected: ${duplicateFiles.map((f) => f.name).join(", ")}. Each file can only be uploaded once per message.`,
+        `检测到重复文件：${duplicateFiles.map((f) => f.name).join(", ")}。每条消息只能上传一次同一文件。`,
       );
     }
 
@@ -123,12 +123,12 @@ export function useFileUpload({
 
       if (invalidFiles.length > 0) {
         toast.error(
-          "You have uploaded invalid file type. Please upload a JPEG, PNG, GIF, WEBP image or a PDF.",
+          "您上传了不支持的文件类型。请上传 JPEG、PNG、GIF、WEBP 图片或 PDF。",
         );
       }
       if (duplicateFiles.length > 0) {
         toast.error(
-          `Duplicate file(s) detected: ${duplicateFiles.map((f) => f.name).join(", ")}. Each file can only be uploaded once per message.`,
+          `检测到重复文件：${duplicateFiles.map((f) => f.name).join(", ")}。每条消息只能上传一次同一文件。`,
         );
       }
 
@@ -243,12 +243,12 @@ export function useFileUpload({
     const uniqueFiles = validFiles.filter((file) => !isDuplicate(file));
     if (invalidFiles.length > 0) {
       toast.error(
-        "You have pasted an invalid file type. Please paste a JPEG, PNG, GIF, WEBP image or a PDF.",
+        "您粘贴了不支持的文件类型。请粘贴 JPEG、PNG、GIF、WEBP 图片或 PDF。",
       );
     }
     if (duplicateFiles.length > 0) {
       toast.error(
-        `Duplicate file(s) detected: ${duplicateFiles.map((f) => f.name).join(", ")}. Each file can only be uploaded once per message.`,
+        `检测到重复文件：${duplicateFiles.map((f) => f.name).join(", ")}。每条消息只能上传一次同一文件。`,
       );
     }
     if (uniqueFiles.length > 0) {

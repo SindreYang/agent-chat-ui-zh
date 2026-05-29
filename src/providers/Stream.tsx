@@ -113,11 +113,10 @@ const StreamSession = ({
   useEffect(() => {
     checkGraphStatus(apiUrl, apiKey, authScheme).then((ok) => {
       if (!ok) {
-        toast.error("Failed to connect to LangGraph server", {
+        toast.error("无法连接到后端服务器", {
           description: () => (
             <p>
-              Please ensure your graph is running at <code>{apiUrl}</code> and
-              your API key is correctly set (if connecting to a deployed graph).
+              请确保您的后端正在 <code>{apiUrl}</code> 运行，并且 API 密钥已正确设置（如果连接到已部署的后端）。
             </p>
           ),
           duration: 10000,
@@ -190,12 +189,11 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
             <div className="flex flex-col items-start gap-2">
               <LangGraphLogoSVG className="h-7" />
               <h1 className="text-xl font-semibold tracking-tight">
-                Agent Chat
+                聊天
               </h1>
             </div>
             <p className="text-muted-foreground">
-              Welcome to Agent Chat! Before you get started, you need to enter
-              the URL of the deployment and the assistant / graph ID.
+              欢迎使用聊天功能！开始前，请输入部署 URL 和助手/图表 ID。
             </p>
           </div>
           <form
@@ -219,11 +217,10 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
           >
             <div className="flex flex-col gap-2">
               <Label htmlFor="apiUrl">
-                Deployment URL<span className="text-rose-500">*</span>
+                部署 URL<span className="text-rose-500">*</span>
               </Label>
               <p className="text-muted-foreground text-sm">
-                This is the URL of your LangGraph deployment. Can be a local, or
-                production deployment.
+                这是后端部署的 URL。可以是本地部署或生产部署。
               </p>
               <Input
                 id="apiUrl"
@@ -236,12 +233,10 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
 
             <div className="flex flex-col gap-2">
               <Label htmlFor="assistantId">
-                Assistant / Graph ID<span className="text-rose-500">*</span>
+                助手 / 图表 ID<span className="text-rose-500">*</span>
               </Label>
               <p className="text-muted-foreground text-sm">
-                This is the ID of the graph (can be the graph name), or
-                assistant to fetch threads from, and invoke when actions are
-                taken.
+                这是图表 ID（可以是图表名称），或用于获取线程和执行操作时调用的助手 ID。
               </p>
               <Input
                 id="assistantId"
@@ -253,12 +248,9 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
             </div>
 
             <div className="flex flex-col gap-2">
-              <Label htmlFor="apiKey">LangSmith API Key</Label>
+              <Label htmlFor="apiKey">API 密钥</Label>
               <p className="text-muted-foreground text-sm">
-                This is <strong>NOT</strong> required if using a local LangGraph
-                server. This value is stored in your browser's local storage and
-                is only used to authenticate requests sent to your LangGraph
-                server.
+                如果使用本地后端服务器，则<strong>不</strong>需要填写此项。该值存储在浏览器本地存储中，仅用于对发送到后端的请求进行身份验证。
               </p>
               <PasswordInput
                 id="apiKey"
@@ -272,11 +264,9 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex flex-col gap-1">
-                  <Label htmlFor="agentBuilderEnabled">
-                    Built with Agent Builder
-                  </Label>
+                  <Label htmlFor="agentBuilderEnabled">启用 Agent 构建器</Label>
                   <p className="text-muted-foreground text-sm">
-                    Enable this for Agent Builder deployments.
+                    启用此选项以用于 Agent 构建器 的部署。
                   </p>
                 </div>
                 <Switch
@@ -292,7 +282,7 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
                 type="submit"
                 size="lg"
               >
-                Continue
+                继续
                 <ArrowRight className="size-5" />
               </Button>
             </div>

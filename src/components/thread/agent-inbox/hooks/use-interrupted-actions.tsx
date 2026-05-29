@@ -114,7 +114,7 @@ export default function useInterruptedActions({
 
     if (!decision) {
       toast.error("Error", {
-        description: error ?? "Unsupported response type.",
+        description: error ?? "不支持的响应类型。",
         duration: 5000,
         richColors: true,
         closeButton: true,
@@ -146,7 +146,7 @@ export default function useInterruptedActions({
       }
 
       toast("Success", {
-        description: "Response submitted successfully.",
+        description: "响应已成功提交。",
         duration: 5000,
       });
 
@@ -156,16 +156,16 @@ export default function useInterruptedActions({
       errorOccurred = true;
 
       if ("message" in error && error.message.includes("Invalid assistant")) {
-        toast("Error: Invalid assistant ID", {
+        toast("Error: Invalid assistant ID found", {
           description:
-            "The provided assistant ID was not found in this graph. Please update the assistant ID in the settings and try again.",
+            "所提供的助手 ID 在此图表中未找到。请在设置中更新助手 ID 后重试。",
           richColors: true,
           closeButton: true,
           duration: 5000,
         });
       } else {
         toast.error("Error", {
-          description: "Failed to submit response.",
+          description: "提交响应失败。",
           richColors: true,
           closeButton: true,
           duration: 5000,
@@ -198,13 +198,13 @@ export default function useInterruptedActions({
       );
 
       toast("Success", {
-        description: "Marked thread as resolved.",
+        description: "线程已标记为已解决。",
         duration: 3000,
       });
     } catch (error) {
       console.error("Error marking thread as resolved", error);
       toast.error("Error", {
-        description: "Failed to mark thread as resolved.",
+        description: "标记线程已解决失败。",
         richColors: true,
         closeButton: true,
         duration: 3000,

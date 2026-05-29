@@ -243,7 +243,7 @@ export function StateView({
   const [expanded, setExpanded] = useState(false);
 
   if (!values) {
-    return <div>No state found</div>;
+    return <div>未找到状态</div>;
   }
 
   return (
@@ -257,7 +257,7 @@ export function StateView({
       {view === "description" && (
         <div className="pt-6 pb-2">
           <MarkdownText>
-            {description ?? "No description provided"}
+            {description ?? "未提供描述"}
           </MarkdownText>
         </div>
       )}
